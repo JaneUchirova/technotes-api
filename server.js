@@ -12,7 +12,10 @@ const mongoose=require('mongoose')
 const {logEvents}=require('./middleware/logger')
 const PORT = process.env.PORT || 3500
 
-
+app.get('/cors', (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
+    res.send({ "msg": "This has CORS enabled 🎈" })
+    })
 console.log(process.env.NODE_ENV)
 
 connectDB()
